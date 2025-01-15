@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/style.css" />
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Calculadora de churrasco</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <img src="img/logo-tw.svg" alt="Logo da TreinaWeb" height="20px" />
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="titulo-principal">Calculadora de Churrasco</h1>
+        <form name="camposFormulario">
+          <p class="descricao-convidados">Insira quantas pessoas irão no churrasco</p>
+          <input type="number" name="convidados" id="convidados" placeholder="Ex. 35"/>
+
+          <div class="blocos-editaveis">
+            <section class="comida">
+              <h2>Carnes</h2>
+              <div class="campo-form">
+                <label for="bovina">Bovina</label>
+                <input
+                  type="text"
+                  name="bovina"
+                  id="bovina"
+                  placeholder="Valor do Kg"
+                />
+              </div>
+              <div class="campo-form">
+                <label for="frango">Frango</label>
+                <input
+                  type="text"
+                  name="frango"
+                  id="frango"
+                  placeholder="Valor do Kg"
+                />
+              </div>
+              <div class="campo-form">
+                <label for="suina">Suina</label>
+                <input
+                  type="text"
+                  name="suina"
+                  id="suina"
+                  placeholder="Valor do Kg"
+                />
+              </div>
+            </section>
+            
+            <section class="bebida">
+              <h2>Bebidas</h2>
+              <div class="campo-form">
+                <label for="refri">Refrigerante (Por Litro)</label>
+                <input
+                  type="text"
+                  name="refri"
+                  id="refri"
+                  placeholder="Valor por Litro"
+                />
+              </div>
+              <div class="campo-form">
+                <label for="cerveja">Cerveja(Late 355ml)</label>
+                <input
+                  type="text"
+                  name="cerveja"
+                  id="cerveja"
+                  placeholder="Valor por Unidade"
+                />
+              </div>
+              <div class="campo-form">
+                <label for="quantidadePessoasBebemCerveja"
+                  >N. de pessoas que bebem cerveja</label
+                >
+                <input
+                  type="number"
+                  name="quantidadePessoasBebemCerveja"
+                  id="quantidadePessoasBebemCerveja"
+                  placeholder="Número de Pessoas"
+                />
+              </div>
+            </section>
+          </div>
+
+          <button type="submit" class="btn-calcular" id="calcular">
+            Fazer o cálculo
+          </button>
+        </form>
+
+        <section class="resultado-section" id="resultado">
+          <h2 class="titulo-secao">Resultado</h2>
+
+          <div class="campos-resposta">
+            <!-- Tabela do Resultado da Comida -->
+            <table class="tabela">
+              <tr>
+                <th></th>
+                <th>Quantidade</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <th>Carne bovina necessária para o churrasco</th>
+                <td class="valor-resposta" id="qtd-bovina"></td>
+                <td class="valor-resposta" id="valor-bovina"></td>
+              </tr>
+              <tr>
+                <th>Frango necessária para o churrasco</th>
+                <td class="valor-resposta" id="qtd-frango"></td>
+                <td class="valor-resposta" id="valor-frango"></td>
+              </tr>
+              <tr>
+                <th>Carne suina necessária para o churrasco</th>
+                <td class="valor-resposta" id="qtd-suina"></td>
+                <td class="valor-resposta" id="valor-suina"></td>
+              </tr>
+              <tr>
+                <th class="total">Total</th>
+                <td class="valor-resposta" id="qtd-total-comida"></td>
+                <td class="valor-resposta" id="valor-total-comida"></td>
+              </tr>
+            </table>
+            <!-- Tabela do Resultaod da Bebida -->
+            <table class="tabela">
+              <tr>
+                <th></th>
+                <th>Quantidade</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <th>Quantidade de Refrigerante</th>
+                <td class="valor-resposta" id="qtd-refri"></td>
+                <td class="valor-resposta" id="valor-refri"></td>
+              </tr>
+              <tr>
+                <th>Quantidade de Cerveja</th>
+                <td class="valor-resposta" id="qtd-cerveja"></td>
+                <td class="valor-resposta" id="valor-cerveja"></td>
+              </tr>
+              <tr>
+                <th class="total">Total</th>
+                <td></td>
+                <td class="valor-resposta" id="valor-total-bebida"></td>
+              </tr>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Site Criado por
+        <a href="https://github.com/vinivizzapc">Vinicius Vizza Campos</a>
+      </p>
+    </footer>
+  </body>
+  <script type="module" src="src/js/script.js"></script>
+</html>
