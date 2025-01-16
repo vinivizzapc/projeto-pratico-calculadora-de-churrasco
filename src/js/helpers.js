@@ -1,33 +1,40 @@
 function obterElementoId(nomeCampo) {
-    return document.getElementById(nomeCampo)
+  return document.getElementById(nomeCampo);
 }
 
-function inserirValores(elemento, valor){
-     return obterElementoId(elemento).innerText = `${converterMoeda(valor)}`;
+function inserirValores(elemento, valor) {
+  if (valor == 0 || isNaN(valor)) {
+    return (obterElementoId(elemento).innerText = "--");
+  }
+
+  return (obterElementoId(elemento).innerText = `${converterMoeda(valor)}`);
 }
 
-function inserirQuantidades(elemento, valor, unidade = ''){
-    return obterElementoId(elemento).innerText = `${valor} ${unidade}`
+function inserirQuantidades(elemento, valor, unidade = "") {
+  if (valor == 0 || isNaN(valor)) {
+    return (obterElementoId(elemento).innerText = "--");
+  }
+  return (obterElementoId(elemento).innerText = `${valor} ${unidade}`);
 }
 
-function converterMoeda(valor){
-    const valorConvertido = new Intl.NumberFormat('pt-BR', {
-        currency: 'BRL',
-        style: 'currency'
-    }).format(valor);
+function converterMoeda(valor) {
+  const valorConvertido = new Intl.NumberFormat("pt-BR", {
+    currency: "BRL",
+    style: "currency",
+  }).format(valor);
 
-    return valorConvertido;
+  return valorConvertido;
 }
 
-function stringParaFloat(input){
-    let valorAlterado;
+function stringParaFloat(input) {
+  let valorAlterado;
 
-    valorAlterado = parseFloat(input.replace(',', '.'));
-    if(isNaN(valorAlterado)) {
-        valorAlterado = 0;
-    } 
+  valorAlterado = parseFloat(input.replace(",", "."));
+  if (isNaN(valorAlterado)) {
+    valorAlterado = 0;
+  }
 
-    return valorAlterado;
+  return valorAlterado;
 }
 
-export { inserirValores, inserirQuantidades, stringParaFloat }
+export { inserirValores, inserirQuantidades, stringParaFloat, obterElementoId };

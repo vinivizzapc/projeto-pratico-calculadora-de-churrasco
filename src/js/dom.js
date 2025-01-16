@@ -1,4 +1,4 @@
-import { inserirQuantidades, inserirValores } from "./helpers.js";
+import { inserirQuantidades, inserirValores, obterElementoId } from "./helpers.js";
 
 function obterFormulario() {
   return document.forms.camposFormulario;
@@ -22,16 +22,30 @@ function mostrarBebida(bebida) {
 }
 
 function mostrarComida(comida) {
-    inserirValores("valor-bovina", comida.valores.bovina);
-    inserirValores("valor-frango", comida.valores.frango);
-    inserirValores("valor-suina", comida.valores.suina);
-    inserirValores("valor-total-comida", comida.totais.valorTotal);
+  inserirValores("valor-bovina", comida.valores.bovina);
+  inserirValores("valor-frango", comida.valores.frango);
+  inserirValores("valor-suina", comida.valores.suina);
+  inserirValores("valor-total-comida", comida.totais.valorTotal);
 
-    inserirQuantidades("qtd-bovina", comida.quantidades.bovina.toFixed(3), 'g');
-    inserirQuantidades("qtd-frango", comida.quantidades.frango.toFixed(3), 'g');
-    inserirQuantidades("qtd-suina", comida.quantidades.suina.toFixed(3), 'g');
-    inserirQuantidades("qtd-total-comida", comida.totais.quantidadeTotal.toFixed(3), 'g');
-
+  inserirQuantidades("qtd-bovina", comida.quantidades.bovina.toFixed(3), "g");
+  inserirQuantidades("qtd-frango", comida.quantidades.frango.toFixed(3), "g");
+  inserirQuantidades("qtd-suina", comida.quantidades.suina.toFixed(3), "g");
+  inserirQuantidades(
+    "qtd-total-comida",
+    comida.totais.quantidadeTotal.toFixed(3),
+    "g"
+  );
 }
 
-export { obterFormulario, mostrarBebida, mostrarComida };
+function zerarCampos(inputs) {
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+}
+
+function apresentarResposta() {
+  const resposta = obterElementoId('resultado');
+  resposta.style.height = 'auto';
+}
+
+export { obterFormulario, mostrarBebida, mostrarComida, zerarCampos, apresentarResposta };

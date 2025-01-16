@@ -10,7 +10,11 @@ function calcularComida({
   valorFrango,
   valorSuina,
 }) {
-  let quantidadesComida = quantidade(quantidadeConvidados);
+  let quantidadesComida = quantidade(
+    quantidadeConvidados,
+    valorFrango,
+    valorSuina
+  );
   let valoresComida = valor(
     quantidadesComida,
     valorBovina,
@@ -30,7 +34,31 @@ function calcularComida({
   };
 }
 
-function quantidade(convidados) {
+function calcularMultiplicador(valorFrango, valorSuina) {
+  if (valorFrango === "" && valorSuina === "") {
+    multiplicadorBovina = 0.4;
+    multiplicadorFrango = 0;
+    multiplicadorSuina = 0;
+    return;
+  }
+
+  if (valorFrango === "") {
+    multiplicadorBovina = 0.25;
+    multiplicadorFrango = 0;
+    multiplicadorSuina = 0.15;
+    return;
+  }
+
+  if (valorSuina === "") {
+    multiplicadorBovina = 0.25;
+    multiplicadorFrango = 0.15;
+    multiplicadorSuina = 0;
+    return;
+  }
+}
+
+function quantidade(convidados, valorFrango, valorSuina) {
+  calcularMultiplicador(valorFrango, valorSuina);
   let bovina, frango, suina;
   bovina = convidados * multiplicadorBovina;
   frango = convidados * multiplicadorFrango;

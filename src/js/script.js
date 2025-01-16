@@ -1,6 +1,6 @@
 import { calcularBebida } from "./bebidas.js";
 import { calcularComida } from "./comida.js";
-import { obterFormulario, mostrarBebida, mostrarComida } from "./dom.js";
+import { obterFormulario, mostrarBebida, mostrarComida, zerarCampos, apresentarResposta } from "./dom.js";
 import { formatarMoeda } from "./mascara.js";
 import { validacoes, validacoesCampos } from "./validacoes.js";
 
@@ -41,5 +41,7 @@ informacoesDeEntrada.addEventListener('submit', (event)=> {
     if(validacoes(informacoesDeEntrada)) {
         bebida();
         comida();
+        zerarCampos(informacoesDeEntrada);
+        apresentarResposta();
     }
 })
